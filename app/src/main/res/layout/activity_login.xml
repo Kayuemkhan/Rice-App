@@ -40,7 +40,7 @@
 
         <View
             android:layout_width="0dp"
-            android:layout_height="160dp"
+            android:layout_height="140dp"
             />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -113,6 +113,18 @@
             android:textColor="@color/overlay_dark_30"
             android:background="@color/White"
             android:gravity="end" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/remember_me_chkb"
+            android:text="Remember Me"
+            android:theme="@style/Widget.AppCompat.CompoundButton.CheckBox"
+            android:textColor="@color/Black"
+            android:layout_gravity="center_vertical"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="17dp"
+            />
         <View
             android:layout_width="0dp"
             android:layout_height="5dp" />
