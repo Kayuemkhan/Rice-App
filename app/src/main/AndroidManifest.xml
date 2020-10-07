@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".SettinsActivity"></activity>
+        <activity android:name=".ProductDetailsActivity"></activity>
+        <activity android:name=".SettinsActivity" />
         <activity android:name=".SearchProductsActivity" />
         <activity android:name=".CartActivity" />
         <activity android:name=".HomeActivity" />

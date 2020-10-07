@@ -26,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import code.fortomorrow.riceapp.Prevalent.Prevalent;
+import code.fortomorrow.riceapp.ViewHolder.ProductViewHolder;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
