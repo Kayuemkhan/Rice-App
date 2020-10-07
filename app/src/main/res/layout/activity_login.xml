@@ -40,7 +40,7 @@
 
         <View
             android:layout_width="0dp"
-            android:layout_height="140dp"
+            android:layout_height="120dp"
             />
 
         <com.google.android.material.textfield.TextInputLayout

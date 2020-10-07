@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button createAccountButton;
     private EditText InputName,InputPhoneNumber,InputPassword;
     private ProgressDialog loadingBar;
+    private TextView login_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,14 @@ public class RegisterActivity extends AppCompatActivity {
         InputPhoneNumber = findViewById(R.id.register_phone_number_input);
         InputPassword = findViewById(R.id.register_password_input);
         loadingBar = new ProgressDialog(this);
+        login_back = findViewById(R.id.login_back);
+
+        login_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            }
+        });
 
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
