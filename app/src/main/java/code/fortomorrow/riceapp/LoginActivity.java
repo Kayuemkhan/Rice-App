@@ -104,9 +104,10 @@ public class LoginActivity extends AppCompatActivity {
                         if(usersData.getPassword().equals(password)){
                        if (parentDbName.equals("Users")) {
                                 loadingBar1.dismiss();
-                                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                                 Prevalent.currentOnlineUser = usersData;
                                 startActivity(intent);
+                                finish();
                             }
 
                         }
@@ -118,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    Toast.makeText(LoginActivity.this,"Account With this"+ phone+" number do not exists",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"Account with this "+ phone+" number do not exists ",Toast.LENGTH_SHORT).show();
                     loadingBar1.dismiss();
                 }
             }

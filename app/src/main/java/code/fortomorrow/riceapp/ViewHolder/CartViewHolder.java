@@ -6,8 +6,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.amazonapp.Interface.ItemClickListner;
-import com.example.amazonapp.R;
+import code.fortomorrow.riceapp.Interface.ItemClickListner;
+import code.fortomorrow.riceapp.R;
+
 
 public class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView txtProductName, txtProductPrice,txtProductQuantity;
