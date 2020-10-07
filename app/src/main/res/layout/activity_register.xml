@@ -40,9 +40,8 @@
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:id="@+id/sign_up_phone"
+                android:id="@+id/register_phone_number_input"
                 android:layout_height="wrap_content"
-
                 android:maxLength="50"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -62,7 +61,7 @@
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:id="@+id/sign_up_username"
+                android:id="@+id/register_username_input"
                 android:layout_height="wrap_content"
                 android:maxLength="50"
                 android:maxLines="1"
@@ -73,29 +72,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="15dp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="NID Card Number"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:id="@+id/sign_up_NID"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="50"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="@color/blue_grey_300"
-                android:textSize="15sp"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
         <View
             android:layout_width="0dp"
             android:layout_height="15dp" />
@@ -107,7 +83,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/sign_up_password"
+                android:id="@+id/register_password_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
