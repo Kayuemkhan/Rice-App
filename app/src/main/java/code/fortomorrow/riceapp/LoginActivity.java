@@ -26,7 +26,7 @@ import io.paperdb.Paper;
 public class LoginActivity extends AppCompatActivity {
     private EditText InputNumber, InputPassword;
     private Button LoginButton;
-    ProgressDialog loadingBar1;
+    ProgressDialog loadingBar1,loadingBar2;
     private TextView signupbtn;
     private String parentDbName ="Users";
     private CheckBox chkBoxRememberMe;
@@ -36,7 +36,19 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        Paper.init(this);
+        String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
+        String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
+        if(UserPhoneKey != "" && UserPasswordKey != ""){
+            if(!TextUtils.isEmpty(UserPhoneKey) && !TextUtils.isEmpty(UserPasswordKey)){
+                AllowAcrees(UserPhoneKey,UserPasswordKey);
+                loadingBar2 = new ProgressDialog(this);
+                loadingBar2.setTitle("Already Logged in");
+                loadingBar2.setMessage("Please Wait...");
+                loadingBar2.setCanceledOnTouchOutside(false);
+                loadingBar2.show();
+            }
+        }
         LoginButton = findViewById(R.id.login_btn);
         InputNumber = findViewById(R.id.login_phone_number_input);
         InputPassword = findViewById(R.id.login_password_input);
@@ -120,6 +132,42 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
                     Toast.makeText(LoginActivity.this,"Account with this "+ phone+" number do not exists ",Toast.LENGTH_SHORT).show();
+                    loadingBar1.dismiss();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+    private void AllowAcrees(final String phone, final String password) {
+        final DatabaseReference Rootref;
+        Rootref = FirebaseDatabase.getInstance().getReference();
+        Rootref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child("Users").child(phone).exists()){
+                    Users usersData = dataSnapshot.child("Users").child(phone).getValue(Users.class);
+
+                    if(usersData.getPhone().equals(phone)){
+                        if(usersData.getPassword().equals(password)){
+                            loadingBar1.dismiss();
+                            Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                            Prevalent.currentOnlineUser = usersData;
+                            startActivity(intent);
+
+                        }
+                        else {
+                            loadingBar1.dismiss();
+                            Toast.makeText(getApplicationContext(),"password is not Correct",Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),"Account With this"+ phone+" number do not exists",Toast.LENGTH_SHORT).show();
                     loadingBar1.dismiss();
                 }
             }
