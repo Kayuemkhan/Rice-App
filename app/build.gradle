@@ -49,5 +49,5 @@ dependencies {
     implementation 'io.paperdb:paperdb:2.6'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
-
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
 }
