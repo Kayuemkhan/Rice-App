@@ -92,7 +92,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id == R.id.nav_categories)
         {
-
+            startActivity(new Intent(getApplicationContext(),CategoryItemActivity.class));
         }
         else if (id == R.id.nav_settings)
         {

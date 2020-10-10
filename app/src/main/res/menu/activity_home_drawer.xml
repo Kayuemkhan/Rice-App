@@ -34,6 +34,12 @@
             android:title="Log Out"
             android:iconTint="@color/White"
             />
+        <item
+            android:id="@+id/about"
+            android:title="About"
+            android:iconTint="@color/White"
+            />
+
     </group>
 
 
