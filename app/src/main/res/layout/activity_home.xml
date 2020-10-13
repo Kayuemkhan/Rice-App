@@ -24,13 +24,28 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
 
             >
-            <ImageView
-                android:layout_marginLeft="-30dp"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:src="@drawable/chak"
-                android:layout_marginBottom="5dp"
-                />
+                android:layout_height="match_parent"
+                >
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/chak"
+                    android:layout_marginBottom="5dp"
+                    />
+                <ImageView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_shopping_cart_24"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/cart"
+                    />
+            </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
 
         <LinearLayout
@@ -91,20 +106,19 @@
                 />
         </LinearLayout>
 
-
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/nav_view"
+            app:headerLayout="@layout/nav_header_home"
+            app:menu="@menu/activity_home_drawer"
+            android:layout_gravity="start"
+            android:padding="3dp"
+            android:background="@drawable/rectangle"
+            />
 
     </LinearLayout>
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/nav_view"
-        app:headerLayout="@layout/nav_header_home"
-        app:menu="@menu/activity_home_drawer"
-        android:layout_gravity="start"
-        android:padding="3dp"
-        android:background="@drawable/rectangle"
 
-        />
 
 
 
