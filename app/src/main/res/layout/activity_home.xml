@@ -18,22 +18,65 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:id="@+id/toolbar"
-            android:background="@color/colorPrimary"
+            android:background="@android:color/transparent"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:elevation="4dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            />
-        <FrameLayout
+
+            >
+            <ImageView
+                android:layout_marginLeft="-30dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:src="@drawable/chak"
+                android:layout_marginBottom="5dp"
+                />
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/fragment_container"
+            android:orientation="vertical"
             >
+            <LinearLayout
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:textStyle="normal"
+                    android:textSize="15sp"
+                    android:textColor="#62b5bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Categories"
+                    />
+                <include
+                    layout="@layout/category"
+                    />
+                <TextView
+                    android:textStyle="normal"
+                    android:textSize="15sp"
+                    android:textColor="#62b5bb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Products: "
+                    />
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    />-->
+<!--                    />-->
+            </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyler_menu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="vertical"
-
+                tools:listitem="@layout/products_items_layout"
                 >
 
             </androidx.recyclerview.widget.RecyclerView>
@@ -46,20 +89,21 @@
                 android:layout_margin="16dp"
                 android:id="@+id/nav_cart"
                 />
-        </FrameLayout>
+        </LinearLayout>
 
 
 
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/nav_view"
         app:headerLayout="@layout/nav_header_home"
         app:menu="@menu/activity_home_drawer"
         android:layout_gravity="start"
-        android:background="@color/White"
+        android:padding="3dp"
+        android:background="@drawable/rectangle"
+
         />
 
 

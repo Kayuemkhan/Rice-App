@@ -1,6 +1,7 @@
 package code.fortomorrow.riceapp;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +29,7 @@ import com.squareup.picasso.Picasso;
 
 import code.fortomorrow.riceapp.Prevalent.Prevalent;
 import code.fortomorrow.riceapp.ViewHolder.ProductViewHolder;
+import code.fortomorrow.riceapp.utils.SpacesItemDecoration;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
@@ -35,6 +38,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private DatabaseReference ProductsRef;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +46,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
 
+
+
         Paper.init(this);
 
         recyclerView = findViewById(R.id.recyler_menu);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new GridLayoutManager(this,2);
+        recyclerView.addItemDecoration(new SpacesItemDecoration(10));
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -73,6 +81,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         userNameTextView.setText(Prevalent.currentOnlineUser.getName());
          Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            toggle.getDrawerArrowDrawable().setColor(getColor(R.color.colorPrimary));
+        } else {
+            toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.colorPrimary));
+        }
 
     }
 
@@ -130,7 +143,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     {
                         holder.txtProductName.setText(model.getPname());
                         //holder.txtProductDescription.setText(model.getDescription());
-                        holder.txtProductPrice.setText(model.getPrice() + "$");
+                        holder.txtProductPrice.setText(model.getPrice() + " Taka");
                         Picasso.get().load(model.getImage()).into(holder.imageView);
 
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
