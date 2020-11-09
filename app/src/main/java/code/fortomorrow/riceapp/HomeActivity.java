@@ -54,18 +54,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         recyclerView = findViewById(R.id.recyler_menu);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new GridLayoutManager(this,2);
-        recyclerView.addItemDecoration(new SpacesItemDecoration(10));
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        //recyclerView.addItemDecoration(new SpacesItemDecoration(10));
         recyclerView.setLayoutManager(layoutManager);
 
-        cart = findViewById(R.id.cart);
-        cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),CartActivity.class));
-            }
-        });
+//        cart = findViewById(R.id.cart);
+//        cart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(),CartActivity.class));
+//            }
+//        });
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Home");
@@ -90,7 +90,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
         userNameTextView.setText(Prevalent.currentOnlineUser.getName());
-         Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             toggle.getDrawerArrowDrawable().setColor(getColor(R.color.colorPrimary));
         } else {
@@ -130,6 +130,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
+        }
+        else if(id == R.id.about){
+            Intent i = new Intent(getApplicationContext(),Aboutpage.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
