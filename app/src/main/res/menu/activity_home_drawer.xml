@@ -16,12 +16,7 @@
             android:title="Search Items"
             android:iconTint="@color/White"
             />
-        <item
-            android:id="@+id/nav_categories"
 
-            android:title="Categories"
-            android:iconTint="@color/White"
-            />
         <item
             android:id="@+id/nav_settings"
 
